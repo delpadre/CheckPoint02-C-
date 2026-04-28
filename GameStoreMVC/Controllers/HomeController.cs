@@ -1,33 +1,29 @@
 using GameStoreMVC.Interfaces;
 using GameStoreMVC.Models;
+using GameStoreMVC.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace GameStoreMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IGameRepositorio _gameRepositorio;
+        private readonly IGameRepository _gameRepository;
 
-        public HomeController(ILogger<HomeController> logger, IGameRepositorio gameRepositorio)
+        public HomeController(IGameRepository gameRepository)
         {
-            _logger = logger;
-            _gameRepositorio = gameRepositorio;
+            _gameRepository = gameRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            
-            return View();
+            var games = await _gameRepository.GetAllAsync();
+            return View(games);
         }
 
-    
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
     }
 }
+//teste
