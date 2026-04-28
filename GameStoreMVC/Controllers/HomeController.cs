@@ -8,9 +8,9 @@ namespace GameStoreMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IGameRepositorio _gameRepositorio;
+        private readonly IGameRepository _gameRepositorio;
 
-        public HomeController(ILogger<HomeController> logger, IGameRepositorio gameRepositorio)
+        public HomeController(ILogger<HomeController> logger, IGameRepository gameRepositorio)
         {
             _logger = logger;
             _gameRepositorio = gameRepositorio;

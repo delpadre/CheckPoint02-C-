@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-builder.Services.AddScoped<IGameRepositorio, GameRepositorio>();
+builder.Services.AddScoped<IGameRepository, GameRepositorio>();
 
 
 var app = builder.Build();
