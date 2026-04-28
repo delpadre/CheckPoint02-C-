@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GameStoreMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GameStoreMVC.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3" style="background-color: var(--primary-navy);">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">LOJA GAME</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="pt-5 pb-3 mt-5" style="background-color: var(--light-blue-bg); border-top: 3px solid var(--accent-purple);">
+        <div class="container" style="color: var(--primary-navy);">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3" style="color: var(--primary-navy);">GAME<span style="color: var(--accent-purple);">STORE</span></h4>
+                    <p class="small opacity-75">Sua arena gamer definitiva. Os melhores títulos, as ofertas mais quentes e a maior comunidade de jogadores você encontra aqui.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" style="color: var(--accent-purple);" class="fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" style="color: var(--accent-purple);" class="fs-5"><i class="bi bi-discord"></i></a>
+                        <a href="#" style="color: var(--accent-purple);" class="fs-5"><i class="bi bi-twitch"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Loja</h6>
+                    <ul class="list-unstyled">
+                        <li><a asp-controller="Home" asp-action="Index" class="text-decoration-none small text-dark hover-purple">Todos os Games</a></li>
+                        <li><a href="#" class="text-decoration-none small text-dark hover-purple">Lançamentos</a></li>
+                        <li><a href="#" class="text-decoration-none small text-dark hover-purple">Promoções</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Suporte</h6>
+                    <ul class="list-unstyled">
+                        <li><a asp-action="Privacy" class="text-decoration-none small text-dark hover-purple">Privacidade</a></li>
+                        <li><a href="#" class="text-decoration-none small text-dark hover-purple">Termos de Uso</a></li>
+                        <li><a href="#" class="text-decoration-none small text-dark hover-purple">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Fique por dentro</h6>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control border-secondary" placeholder="Seu melhor e-mail">
+                        <button class="btn text-white fw-bold" style="background-color: var(--accent-purple);" type="button">OK</button>
+                    </div>
+                    <p class="opacity-75" style="font-size: 0.75rem;">Receba cupons de desconto exclusivos!</p>
+                </div>
+            </div>
+
+            <hr class="opacity-25" style="background-color: var(--primary-navy);">
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-3">
+                <p class="small mb-0 opacity-75">&copy; 2026 - GameStore. Todos os direitos reservados.</p>
+                <div class="payment-icons">
+                    <i class="bi bi-credit-card-2-back fs-4 ms-2" title="Cartão"></i>
+                    <i class="bi bi-qr-code fs-4 ms-2" title="Pix"></i>
+                    <i class="bi bi-paypal fs-4 ms-2" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

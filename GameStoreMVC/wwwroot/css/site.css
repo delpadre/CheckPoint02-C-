@@ -1,0 +1,46 @@
+:root {
+    /* Cores Principais */
+    --primary-navy: #002366; /* Azul Marinho (Destaque/Títulos) */
+    --accent-purple: #6A5ACD; /* Roxo/Slate Blue (Botões e Hover) */
+    --light-blue-bg: #E3F2FD; /* Azul Bebê (Fundo Geral) */
+    --card-white: #FFFFFF; /* Branco Puro (Cards) */
+    --text-dark: #1A1A1A; /* Texto Principal */
+}
+
+body {
+    background-color: var(--light-blue-bg);
+    color: var(--text-dark);
+    font-family: sans-serif;
+}
+
+.game-card {
+    background: var(--card-white);
+    border: 1px solid rgba(0, 35, 102, 0.1); /* Borda sutil em marinho */
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    color: var(--text-dark);
+}
+
+    .game-card:hover {
+        transform: translateY(-10px);
+        /* Shadow suave usando o roxo */
+        box-shadow: 0 10px 25px rgba(106, 90, 205, 0.2);
+        border: 1px solid var(--accent-purple);
+    }
+
+.btn-neon {
+    /* No modo claro, o botão fica melhor com o roxo ou marinho */
+    background-color: var(--accent-purple);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+    .btn-neon:hover {
+        background-color: var(--primary-navy);
+        cursor: pointer;
+    }
