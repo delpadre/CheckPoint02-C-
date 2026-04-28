@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\labsfiap\\Downloads\\GameStore\\GameStore\\GameStoreMVC\\GameStoreMVC.csproj": {}
+    "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\labsfiap\\Downloads\\GameStore\\GameStore\\GameStoreMVC\\GameStoreMVC.csproj": {
+    "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\labsfiap\\Downloads\\GameStore\\GameStore\\GameStoreMVC\\GameStoreMVC.csproj",
+        "projectUniqueName": "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
         "projectName": "GameStoreMVC",
-        "projectPath": "C:\\Users\\labsfiap\\Downloads\\GameStore\\GameStore\\GameStoreMVC\\GameStoreMVC.csproj",
+        "projectPath": "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
         "packagesPath": "C:\\Users\\labsfiap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\labsfiap\\Downloads\\GameStore\\GameStore\\GameStoreMVC\\obj\\",
+        "outputPath": "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
