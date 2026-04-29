@@ -17,9 +17,9 @@
 
                     @if (!ViewData.ModelState.IsValid)
                     {
-                        <div class="alert alert-danger small py-2">
+                            <div class="alert alert-danger small py-2">
                             @Html.ValidationSummary(false, "", new { @class = "mb-0" })
-                        </div>
+                            </div>
                     }
 
                     <form asp-action="CriarConta" method="post">
@@ -36,12 +36,12 @@
                         </div>
                         <div class="mb-3">
                             <label asp-for="Senha" class="form-label text-light small">Senha</label>
-                            <input asp-for="Senha" class="form-control gs-input" placeholder="Crie uma senha forte" />
+                            <input asp-for="Senha" type="password" class="form-control gs-input" placeholder="Mínimo 6 caracteres" />
                             <span asp-validation-for="Senha" class="text-danger small"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="ConfirmacaoSenha" class="form-label text-light small">Confirmar Senha</label>
-                            <input asp-for="ConfirmacaoSenha" class="form-control gs-input" placeholder="Repita sua senha" />
+                            <input asp-for="ConfirmacaoSenha" type="password" class="form-control gs-input" placeholder="Repita sua senha" />
                             <span asp-validation-for="ConfirmacaoSenha" class="text-danger small"></span>
                         </div>
                         <button type="submit" class="btn btn-success w-100 fw-bold">Finalizar Cadastro</button>
@@ -58,5 +58,5 @@
 </section>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+        <partial name="_ValidationScriptsPartial" />
 }

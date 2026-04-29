@@ -41,7 +41,7 @@
                                 <select asp-for="Categoria" class="form-select gs-input">
                                     @foreach (var cat in categorias)
                                     {
-                                        <option value="@cat">@cat</option>
+                                            <option value="@cat">@cat</option>
                                     }
                                 </select>
                             </div>
@@ -66,5 +66,5 @@
 </section>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+        <partial name="_ValidationScriptsPartial" />
 }

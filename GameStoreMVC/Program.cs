@@ -1,29 +1,40 @@
-using GameStoreMVC.Interfaces;
+using GameStoreMVC.Repositories.Interfaces;
 using GameStoreMVC.Repositorio;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Autenticação com Cookie + Claims
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/Login";
+        options.LogoutPath = "/Login/Logout";
+        options.AccessDeniedPath = "/Login/Login";
+        options.ExpireTimeSpan = TimeSpan.FromHours(2);
+    });
 
+builder.Services.AddAuthorization();
 
-builder.Services.AddScoped<IUsuarioRepositorio, UserRepository>();
-builder.Services.AddScoped<IGameRepository, GameRepositorio>();
-
+// Injeção de dependência
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IGameRepository, GameRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
-app.UseStaticFiles();
 
+//app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
-
+app.UseAuthentication(); // <-- deve vir ANTES de UseAuthorization
 app.UseAuthorization();
 
 app.MapControllerRoute(

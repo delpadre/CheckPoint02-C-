@@ -1,37 +1,23 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {}
+    "E:\\OneDrive\\Área de Trabalho\\projeto C#\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {
+    "E:\\OneDrive\\Área de Trabalho\\projeto C#\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
+        "projectUniqueName": "E:\\OneDrive\\Área de Trabalho\\projeto C#\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
         "projectName": "GameStoreMVC",
-        "projectPath": "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
-        "packagesPath": "C:\\Users\\labsfiap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\labsfiap\\Desktop\\CP02\\CheckPoint02-C-\\GameStoreMVC\\obj\\",
-=======
-    "C:\\Users\\labsfiap\\Desktop\\Checkpoint\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\labsfiap\\Desktop\\Checkpoint\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\labsfiap\\Desktop\\Checkpoint\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
-        "projectName": "GameStoreMVC",
-        "projectPath": "C:\\Users\\labsfiap\\Desktop\\Checkpoint\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
-        "packagesPath": "C:\\Users\\labsfiap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\labsfiap\\Desktop\\Checkpoint\\CheckPoint02-C-\\GameStoreMVC\\obj\\",
->>>>>>> e749a16c0d0ec2387a284afa5360925dfa5b13a9
+        "projectPath": "E:\\OneDrive\\Área de Trabalho\\projeto C#\\CheckPoint02-C-\\GameStoreMVC\\GameStoreMVC.csproj",
+        "packagesPath": "C:\\Users\\Rafinha\\.nuget\\packages\\",
+        "outputPath": "E:\\OneDrive\\Área de Trabalho\\projeto C#\\CheckPoint02-C-\\GameStoreMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\labsfiap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rafinha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -59,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -85,6 +71,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.25, 8.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.25, 8.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.25, 8.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.25, 8.0.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

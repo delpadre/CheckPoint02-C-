@@ -35,7 +35,7 @@ namespace GameStoreMVC.Controllers
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(model.Senha, user.SenhaHash))
             {
-                ModelState.AddModelError(string.Empty, "Email ou senha inválidos.");
+                ModelState.AddModelError(string.Empty, "E-mail ou senha inválidos.");
                 return View(model);
             }
 
@@ -86,7 +86,7 @@ namespace GameStoreMVC.Controllers
 
             if (await _userRepository.EmailExistsAsync(model.Email))
             {
-                ModelState.AddModelError("Email", "Este email já está em uso.");
+                ModelState.AddModelError("Email", "Este e-mail já está em uso.");
                 return View(model);
             }
 
@@ -111,4 +111,3 @@ namespace GameStoreMVC.Controllers
         }
     }
 }
-//atualizando

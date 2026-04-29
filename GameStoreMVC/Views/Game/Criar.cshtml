@@ -12,19 +12,19 @@
                 <div class="gs-card p-4 rounded-3">
                     <div class="text-center mb-4">
                         <h3 class="text-white fw-bold">Novo Game</h3>
-                        <p class="text-muted small">Adicione um novo título ao catálogo</p>
+                        <p class="text-muted small">Adicione um novo título ao seu arsenal</p>
                     </div>
 
                     <form asp-action="Criar" method="post">
                         @Html.AntiForgeryToken()
                         <div class="mb-3">
-                            <label asp-for="Nome" class="form-label text-light small">Nome do Jogo</label>
-                            <input asp-for="Nome" class="form-control gs-input" placeholder="Ex.: The Last of Us" />
+                            <label asp-for="Nome" class="form-label text-light small">Título do Jogo</label>
+                            <input asp-for="Nome" class="form-control gs-input" placeholder="Ex.: Elden Ring" />
                             <span asp-validation-for="Nome" class="text-danger small"></span>
                         </div>
                         <div class="mb-3">
                             <label asp-for="Descricao" class="form-label text-light small">Descrição Curta</label>
-                            <textarea asp-for="Descricao" class="form-control gs-input" rows="3" placeholder="Fale sobre o jogo..."></textarea>
+                            <textarea asp-for="Descricao" class="form-control gs-input" rows="3" placeholder="Breve resumo do game..."></textarea>
                             <span asp-validation-for="Descricao" class="text-danger small"></span>
                         </div>
                         <div class="row">
@@ -38,7 +38,7 @@
                                 <select asp-for="Categoria" class="form-select gs-input">
                                     @foreach (var cat in categorias)
                                     {
-                                        <option value="@cat">@cat</option>
+                                            <option value="@cat">@cat</option>
                                     }
                                 </select>
                             </div>
@@ -46,7 +46,6 @@
                         <div class="mb-3">
                             <label asp-for="ImagemUrl" class="form-label text-light small">URL da Capa</label>
                             <input asp-for="ImagemUrl" class="form-control gs-input" placeholder="https://..." />
-                            <span asp-validation-for="ImagemUrl" class="text-danger small"></span>
                         </div>
                         <div class="mb-4 form-check">
                             <input asp-for="EmDestaque" class="form-check-input" type="checkbox" />
@@ -54,7 +53,7 @@
                         </div>
                         <div class="d-flex gap-2">
                             <button type="submit" class="btn btn-success flex-fill fw-bold">Salvar Game</button>
-                            <a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
                         </div>
                     </form>
                 </div>
@@ -64,5 +63,5 @@
 </section>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+        <partial name="_ValidationScriptsPartial" />
 }

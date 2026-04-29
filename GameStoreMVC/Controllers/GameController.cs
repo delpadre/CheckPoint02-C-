@@ -1,5 +1,4 @@
-﻿using GameStoreMVC.Interfaces;
-using GameStoreMVC.Models;
+﻿using GameStoreMVC.Models;
 using GameStoreMVC.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -82,4 +81,3 @@ namespace GameStoreMVC.Controllers
         }
     }
 }
-//atualizando

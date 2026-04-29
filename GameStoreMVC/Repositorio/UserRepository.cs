@@ -1,59 +1,72 @@
-﻿using GameStoreMVC.Interfaces;
-using GameStoreMVC.Models;
+﻿using GameStoreMVC.Models;
+using GameStoreMVC.Repositories.Interfaces;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Crypto.Generators;
-using BCrypt.Net; // Importante para a criptografia
+using System.Data;
 
 namespace GameStoreMVC.Repositorio
 {
-    public class UsuarioRepositorio : IUsuarioRepositorio
+    public class UserRepository : IUserRepository
     {
         private readonly string _connectionString;
 
-        public UsuarioRepositorio(IConfiguration configuration)
+        public UserRepository(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("Conexao")!;
         }
 
-
-        public Usuario ValidarLogin(string email, string senha)
+        public async Task<User?> GetByEmailAsync(string email)
         {
-            using (var conn = new MySqlConnection(_connectionString))
+            using var conn = new MySqlConnection(_connectionString);
+            await conn.OpenAsync();
+
+            var sql = "SELECT * FROM Usuarios WHERE Email = @email LIMIT 1";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
             {
-                conn.Open();
-
-                // AJUSTE 1: Remova o "AND Senha = @senha" daqui. 
-                // O SQL não consegue comparar Hash sozinho.
-                var sql = "SELECT * FROM Usuarios WHERE Email = @email";
-
-                var cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@email", email);
-
-                using (var reader = cmd.ExecuteReader())
+                return new User
                 {
-                    if (reader.Read())
-                    {
-                        // Pegamos o Hash que está guardado na coluna Senha
-                        //Pegamos o Hash que está guardado no banco
-                        string senhaDoBanco = reader["Senha"].ToString()!;
-
-                        // O Verify faz a mágica: compara a senha limpa com o Hash
-                        // O BCrypt pega a 'senha' que veio do teclado e valida contra o 'senhaDoBanco' (hash)
-                        if (BCrypt.Net.BCrypt.Verify(senha, senhaDoBanco))
-                        {
-                            return new Usuario
-                            {
-                                Id = (int)reader["Id"],
-                                Email = reader["Email"].ToString()!,
-                                Cargo = reader["Cargo"].ToString()!
-                            };
-                        }
-                    }
-                }
+                    Id = reader.GetInt32("Id"),
+                    Nome = reader.GetString("Nome"),
+                    Email = reader.GetString("Email"),
+                    SenhaHash = reader.GetString("SenhaHash"),
+                    IsAdmin = reader.GetBoolean("IsAdmin")
+                };
             }
-            return null!; // E-mail não encontrado ou senha não confere
+
+            return null;
         }
 
+        public async Task<bool> EmailExistsAsync(string email)
+        {
+            using var conn = new MySqlConnection(_connectionString);
+            await conn.OpenAsync();
 
+            var sql = "SELECT COUNT(1) FROM Usuarios WHERE Email = @email";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+
+            var count = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+            return count > 0;
+        }
+
+        public async Task AddAsync(User user)
+        {
+            using var conn = new MySqlConnection(_connectionString);
+            await conn.OpenAsync();
+
+            var sql = @"INSERT INTO Usuarios (Nome, Email, SenhaHash, IsAdmin)
+                        VALUES (@nome, @email, @senhaHash, @isAdmin)";
+
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@nome", user.Nome);
+            cmd.Parameters.AddWithValue("@email", user.Email);
+            cmd.Parameters.AddWithValue("@senhaHash", user.SenhaHash);
+            cmd.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
+
+            await cmd.ExecuteNonQueryAsync();
+        }
     }
 }
